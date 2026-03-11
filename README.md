@@ -8,7 +8,7 @@ A Claude Code plugin that injects 6 evidence-based quality principles at every s
 
 ```bash
 /plugin marketplace add jbj338033/wowclaude
-/plugin install wowclaude@wowclaude
+/plugin install wowclaude
 ```
 
 ## The 6 Principles
@@ -46,13 +46,13 @@ See [docs/research.md](docs/research.md) for detailed citations and reasoning be
 
 ```bash
 # Disable temporarily
-/plugin disable wowclaude@wowclaude
+/plugin disable wowclaude
 
 # Re-enable
-/plugin enable wowclaude@wowclaude
+/plugin enable wowclaude
 
 # Remove completely
-/plugin uninstall wowclaude@wowclaude
+/plugin uninstall wowclaude
 ```
 
 ## License
