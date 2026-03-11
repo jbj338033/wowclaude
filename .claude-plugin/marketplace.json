@@ -8,7 +8,7 @@
       "name": "wowclaude",
       "source": "./",
       "description": "Evidence-based quality principles that improve Claude Code responses",
-      "version": "1.0.0"
+      "version": "2.1.0"
     }
   ]
 }
