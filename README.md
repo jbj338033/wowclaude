@@ -4,6 +4,10 @@
 
 A Claude Code plugin that uses multi-layered hooks to inject evidence-based quality principles. No configuration needed.
 
+## TL;DR
+
+Claude Code makes stuff up when asked about internals (bit flags, private APIs, etc.). This plugin detects those risky queries and forces Claude to mark uncertain details with "iirc" instead of presenting them as fact. It also reminds Claude to read files before editing them. Three hooks, zero config, ~150 words of prompt injection total.
+
 ## Installation
 
 ```bash
