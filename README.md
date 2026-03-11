@@ -30,12 +30,14 @@ A Claude Code plugin that injects 5 evidence-based quality principles at every s
 
 ## How It Works
 
-1. Plugin registers a `SessionStart` hook via `hooks/hooks.json`
-2. On every new Claude Code session, `hooks-handlers/session-start.sh` runs
-3. The script outputs a JSON object with `additionalContext` to stdout
-4. Claude Code injects this context as a `system-reminder`, making the principles active for the entire session
+wowclaude uses a **dual-hook architecture** for maximum effectiveness:
 
-The total prompt injection is ~147 words — small enough to have negligible impact on context window usage.
+1. **`SessionStart` hook** — Injects the 5 quality principles as baseline context at session start
+2. **`UserPromptSubmit` hook** — Detects high-risk queries (internal implementation details, private APIs, bit flags, etc.) and injects a stronger certainty reminder right before the model responds
+
+This dual-layer approach places the certainty reminder at the optimal position in the conversation context — immediately before the response, where it has the strongest influence on model behavior.
+
+The total prompt injection is ~100 words at session start, plus ~70 words conditionally on high-risk queries.
 
 ## Research
 

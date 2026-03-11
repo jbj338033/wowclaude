@@ -30,12 +30,14 @@
 
 ## 작동 방식
 
-1. 플러그인이 `hooks/hooks.json`을 통해 `SessionStart` 훅을 등록
-2. 매 Claude Code 세션 시작 시 `hooks-handlers/session-start.sh`가 실행
-3. 스크립트가 `additionalContext`가 포함된 JSON 객체를 stdout으로 출력
-4. Claude Code가 이 컨텍스트를 `system-reminder`로 주입하여 전체 세션에서 원칙이 활성화
+wowclaude는 **이중 hook 아키텍처**를 사용하여 최대 효과를 발휘합니다:
 
-총 프롬프트 주입량은 약 147단어 — 컨텍스트 윈도우에 미치는 영향이 무시할 수 있을 정도로 작음.
+1. **`SessionStart` hook** — 세션 시작 시 5가지 품질 원칙을 기본 컨텍스트로 주입
+2. **`UserPromptSubmit` hook** — 고위험 쿼리(내부 구현 상세, 비공개 API, 비트 플래그 등)를 감지하고, 모델 응답 직전에 강화된 certainty 리마인더를 주입
+
+이 이중 레이어 접근법은 certainty 리마인더를 대화 컨텍스트에서 최적의 위치 — 응답 직전 — 에 배치하여 모델 행동에 가장 강한 영향을 미칩니다.
+
+세션 시작 시 약 100단어, 고위험 쿼리에 조건부로 약 70단어가 추가 주입됩니다.
 
 ## 연구 자료
 
