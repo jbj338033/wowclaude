@@ -10,6 +10,10 @@ The v1 "honesty" principle ("if you don't know, say so") assumes the model can d
 
 The fix: explicitly enumerate high-risk categories (compiler internals, runtime flags, private APIs, undocumented behavior) so the model triggers uncertainty markers automatically, regardless of subjective confidence.
 
+### Dual-Hook Architecture (v2.1)
+
+Testing revealed that a `SessionStart`-only approach was insufficient — the certainty principle was too far from the response point to override the model's confidence. Adding a `UserPromptSubmit` hook that detects high-risk queries (via keyword matching) and injects a stronger certainty reminder immediately before the response proved critical. This places the instruction at the optimal position in the attention window.
+
 - Anthropic's own usage guidelines recommend instructing Claude to acknowledge uncertainty rather than guess: [Anthropic Documentation — Give Claude room to say "I don't know"](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct#give-claude-room-to-say-i-dont-know)
 - Ji et al. (2023), "Survey of Hallucination in Natural Language Generation" — establishes that instruction-tuned models reduce hallucination rates when explicitly told uncertainty is acceptable.
 - Kadavath et al. (2022), "Language Models (Mostly) Know What They Know" — shows models have some calibration ability but systematically overestimate confidence on details outside their reliable knowledge boundary.
