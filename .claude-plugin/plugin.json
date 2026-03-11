@@ -1,5 +1,12 @@
 {
   "name": "wowclaude",
+  "version": "1.0.0",
   "description": "Evidence-based quality principles that improve Claude Code responses",
-  "author": "jmo"
+  "author": {
+    "name": "jbj338033"
+  },
+  "repository": "https://github.com/jbj338033/wowclaude",
+  "license": "MIT",
+  "keywords": ["quality", "prompting", "hallucination", "reasoning"],
+  "hooks": "./hooks/hooks.json"
 }

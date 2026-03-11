@@ -1,0 +1,14 @@
+{
+  "name": "wowclaude",
+  "owner": {
+    "name": "jbj338033"
+  },
+  "plugins": [
+    {
+      "name": "wowclaude",
+      "source": "./",
+      "description": "Evidence-based quality principles that improve Claude Code responses",
+      "version": "1.0.0"
+    }
+  ]
+}
