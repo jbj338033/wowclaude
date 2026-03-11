@@ -2,7 +2,7 @@
 
 **Install once, get better Claude Code responses forever.**
 
-A Claude Code plugin that injects 6 evidence-based quality principles at every session start. No configuration needed.
+A Claude Code plugin that injects 5 evidence-based quality principles at every session start. No configuration needed.
 
 ## Installation
 
@@ -11,16 +11,15 @@ A Claude Code plugin that injects 6 evidence-based quality principles at every s
 /plugin install wowclaude
 ```
 
-## The 6 Principles
+## The 5 Principles
 
 | # | Principle | What it does |
 |---|-----------|-------------|
-| 1 | **honesty** | Prevents hallucination. If Claude doesn't know, it says so instead of fabricating. |
-| 2 | **depth** | Matches response length to question complexity. No padding, no over-explaining. |
-| 3 | **investigation** | Forces reading before writing. No guessing at file contents or API signatures. |
-| 4 | **reasoning** | Triggers step-back reasoning on hard problems. Understand why, then solve. |
+| 1 | **certainty** | Prevents confabulation on high-risk topics (compiler internals, runtime flags, private APIs). Forces confidence markers like "iirc" or "likely" on uncertain claims. |
+| 2 | **investigation** | Forces reading before writing. No guessing at file contents or API signatures. Uses tools to verify; if unverifiable, says so. |
+| 3 | **reasoning** | Triggers step-back reasoning on hard problems. Understand why, then solve. |
+| 4 | **precision** | Matches response effort to complexity. When uncertain, says less with qualifiers rather than more with false confidence. |
 | 5 | **verification** | Self-checks against the original request before finalizing. |
-| 6 | **correction** | Accepts corrections without rationalizing. Updates approach immediately. |
 
 ## What's NOT Included (and Why)
 
@@ -36,7 +35,7 @@ A Claude Code plugin that injects 6 evidence-based quality principles at every s
 3. The script outputs a JSON object with `additionalContext` to stdout
 4. Claude Code injects this context as a `system-reminder`, making the principles active for the entire session
 
-The total prompt injection is ~170 words — small enough to have negligible impact on context window usage.
+The total prompt injection is ~147 words — small enough to have negligible impact on context window usage.
 
 ## Research
 
